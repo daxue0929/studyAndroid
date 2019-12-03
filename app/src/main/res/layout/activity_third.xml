@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/unicomsdk_color_login_bg">
+
+            <LinearLayout
+                android:id="@+id/unicomsdk_login_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- logo -->
+                <ImageView
+                    android:id="@+id/unicomsdk_logo_img"
+                    android:layout_width="100dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="60dp"
+                    android:background="@drawable/unicomsdk_logo" />
+
+                <!-- phone -->
+                <TextView
+                    android:id="@+id/unicomsdk_mobile_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="45dp"
+                    android:textSize="@dimen/unicomsdk_font_twenty"
+                    android:textStyle="bold"
+                    android:textColor="@color/unicomsdk_color_black" />
+
+                <!-- 认证服务 -->
+                <TextView
+                    android:id="@+id/unicomsdk_identify_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="25dp"
+                    android:textSize="@dimen/unicomsdk_font_twenteen"
+                    android:textColor="#999999"/>
+
+                <!-- 登录按钮部分 -->
+                <include
+                    android:id="@+id/unicomsdk_login_btn"
+                    layout="@layout/unicomsdk_login_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="15dp"/>
+
+                <!-- 切换账号 -->
+                <TextView
+                    android:id="@+id/unicomsdk_switch_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/unicomsdk_font_fourteen"
+                    android:visibility="visible"
+                    android:textColor="#74cb26"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- 服务协议选择框大小 -->
+    <dimen name="unicomsdk_checkbox_size">14sp</dimen>
+    
+	<!-- 通用内边聚 -->
+    <dimen name="unicomsdk_padding_container">5dp</dimen>
+        
+    <!-- 登录按钮左右边界 -->
+    <dimen name="unicomsdk_loginbtn_left">15dp</dimen>
+    
+    <dimen name="unicomsdk_dimen_ten">12dp</dimen>
+        
+    <!-- 字体大小 -->
+	<dimen name="unicomsdk_font_twenty">22sp</dimen>
+    <dimen name="unicomsdk_font_eighteen">18sp</dimen>
+    <dimen name="unicomsdk_font_seventeen">17sp</dimen>
+    <dimen name="unicomsdk_font_sixteen">16sp</dimen>
+    <dimen name="unicomsdk_font_fourteen">14sp</dimen>
+    <dimen name="unicomsdk_font_twenteen">12sp</dimen>
+    <dimen name="unicomsdk_font_eleven">11sp</dimen>
+</resources>

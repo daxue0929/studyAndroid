@@ -10,6 +10,14 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // 添加路由
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ AROUTER_MODULE_NAME : project.getName() ]
+            }
+        }
+
     }
     buildTypes {
         release {
@@ -34,5 +42,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
     implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.14.2'
+
+    implementation 'com.alibaba:arouter-api:1.5.0' // 换用最新版本
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2' // 换用最新版本
 
 }
