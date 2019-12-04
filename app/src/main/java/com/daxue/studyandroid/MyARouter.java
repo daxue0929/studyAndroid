@@ -8,5 +8,7 @@ public final class MyARouter {
 
     public static final String MainActivity = "/ui/MainActivity";
     public static final String TestTActivity = "/ui/TestTActivity";
+    public static final String FourthActivity = "/ui/FourthActivity";
+    public static final String ThirdActivity = "/ui/ThirdActivity";
 
 }

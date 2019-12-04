@@ -14,6 +14,7 @@
             android:layout_height="wrap_content"
             android:background="@color/unicomsdk_color_login_bg">
 
+
             <LinearLayout
                 android:id="@+id/unicomsdk_login_content"
                 android:layout_width="match_parent"
@@ -38,7 +39,8 @@
                     android:layout_marginTop="45dp"
                     android:textSize="@dimen/unicomsdk_font_twenty"
                     android:textStyle="bold"
-                    android:textColor="@color/unicomsdk_color_black" />
+                    android:textColor="@color/unicomsdk_color_black"
+                    android:text="173****5861"/>
 
                 <!-- 认证服务 -->
                 <TextView
@@ -48,7 +50,8 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="25dp"
                     android:textSize="@dimen/unicomsdk_font_twenteen"
-                    android:textColor="#999999"/>
+                    android:textColor="#999999"
+                    android:text="认证服务由联通统一认证提供"/>
 
                 <!-- 登录按钮部分 -->
                 <include
@@ -70,9 +73,21 @@
                     android:textStyle="bold"
                     android:textSize="@dimen/unicomsdk_font_fourteen"
                     android:visibility="visible"
-                    android:textColor="#74cb26"/>
+                    android:textColor="#74cb26"
+                    android:text="切换账号"/>
+
+                <Button
+                    android:id="@+id/go_next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="跳转"
+                    android:onClick="goNext"/>
             </LinearLayout>
+
+
 
         </RelativeLayout>
     </ScrollView>
+
+
 </RelativeLayout>
