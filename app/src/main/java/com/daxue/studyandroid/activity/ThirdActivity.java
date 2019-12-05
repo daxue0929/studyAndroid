@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +23,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.daxue.studyandroid.MyARouter;
 import com.daxue.studyandroid.R;
+import com.daxue.studyandroid.utils.FileUtil;
 
 /**
  * 这是第三个活动
@@ -106,6 +108,13 @@ public class ThirdActivity extends AppCompatActivity {
 
     public void goNext(View view) {
         ARouter.getInstance().build(MyARouter.FourthActivity).navigation();
+
+        FileUtil fileUtil = new FileUtil();
+
+        String str = "你好啊，新的小伙伴";
+        if (!TextUtils.isEmpty(str)) {
+            fileUtil.save(ThirdActivity.this, "fileName",str);
+        }
 
     }
 }
