@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -82,6 +83,8 @@ public class ThirdActivity extends AppCompatActivity {
 
             actionBar.setTitle("登录成功页");
         }
+//        只接收一个参数，默认把当前活动的类名作为SharedPreferences的文件名字
+//        SharedPreferences preferences = getPreferences(Context.MODE_PRIVATE);
 
         UI ui = new UI(ThirdActivity.this);
 
