@@ -40,20 +40,27 @@ public class MainActivity extends AppCompatActivity {
             Log.i(TAG, e.getMessage());
         }
 
+        initClick();
+
+    }
+
+    private void initClick() {
         findViewById(R.id.first_btn).setOnClickListener(v -> {
             // 发起路由操作，替换intent意图跳转
 //            ARouter.getInstance().inject(this);
-
-
             ARouter.getInstance().build(MyARouter.TestTActivity)
                     .withString("test","Test Demo String")
                     .navigation();
-
 //            startActivity(new Intent(MainActivity.this, TestTActivity.class));
-
         });
-    }
 
+        findViewById(R.id.second_btn).setOnClickListener(v -> {
+            ARouter.getInstance().build(MyARouter.DataBaseActivity)
+                    .withString("str","SQLite数据库测试页面")
+                    .navigation();
+        });
+
+    }
 
 
     public void autoInjectAllField(Activity activity) throws IllegalAccessException, IllegalArgumentException {

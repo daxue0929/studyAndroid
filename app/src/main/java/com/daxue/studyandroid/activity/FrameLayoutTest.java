@@ -20,7 +20,7 @@ public class FrameLayoutTest extends Activity {
 
     //定义一个颜色组
     final int[] colors = new int[]{
-            R.color.color1,
+            R.color.red,
             R.color.color2,
             R.color.color3,
             R.color.color4

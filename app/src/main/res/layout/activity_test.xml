@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:width="200dp"
             android:height="110dp"
-            android:background="@color/color1"/>
+            android:background="@color/red"/>
         <TextView
             android:id="@+id/view1"
             android:layout_width="wrap_content"
