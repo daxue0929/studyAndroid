@@ -1,15 +1,57 @@
+
+// 声明是Android程序，
+// com.android.application 表示这是一个应用程序模块,可直接运行
+// com.android.library 标识这是一个库模块，是依附别的应用程序运行
+
 apply plugin: 'com.android.application'
 
 android {
+
+    // 程序在编译的时候会检查lint，有任何错误提示会停止build，我们可以关闭这个开关
+//    lintOptions {
+//        // 即使报错也不会停止打包
+//        abortOnError false
+//        // 打包release版本的时候是否进行检测
+//        checkReleaseBuilds false
+//    }
+
+    // 编译sdk的版本，也就是API Level，例如API-19、API-20、API-21等等。
     compileSdkVersion 29
+
+    // build tools的版本，其中包括了打包工具aapt、dx等等。
+    // 这个工具的目录位于你的sdk目录/build-tools/下
     buildToolsVersion "29.0.2"
-    defaultConfig {
-        applicationId "com.daxue.studyandroid"
-        minSdkVersion 19
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    //关闭Android Studio的PNG合法性检查
+//    aaptOptions.cruncherEnabled = false
+//    aaptOptions.useNewCruncher = false
+
+    defaultConfig {  //默认配置
+        applicationId "com.daxue.studyandroid"  //// 应用程序的包名
+        minSdkVersion 19  /// 最小sdk版本，如果设备小于这个版本或者大于maxSdkVersion将无法安装这个应用
+        targetSdkVersion 26  //// 目标sdk版本，充分测试过的版本（建议版本）
+        versionCode 1  //// 版本号，第一版是1，之后每更新一次加1
+        versionName "1.0"  //// 版本名，显示给用户看到的版本号
+
+        archivesBaseName = "demo-$versionName" // 指定打包成Jar文件时候的文件名称
+
+
+//        ndk {
+//            moduleName "testwifisafe"       // 设置库(so)文件名称
+//            ldLibs "log", "z", "m", "jnigraphics", "android"
+//
+//            // 引入库，比如要用到的__android_log_print
+//            abiFilters "armeabi", "x86", "armeabi-v7a"      // "x86"  显示指定支持的ABIs
+//            cFlags "-std=c++11 -fexceptions"                // C++11
+//            stl "gnustl_static"
+//        }
+
+        // 当方法数超过65535(方法的索引使用的是一个short值，
+        // 而short最大值是65535)的时候允许打包成多个dex文件，动态加载dex。这里面坑很深啊
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner" //// Instrumentation单元测试
+
 
         // 添加路由
         javaCompileOptions {
@@ -23,6 +65,17 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // 默认的一些文件路径的配置
+    sourceSets {
+        main {
+            res.srcDirs = [
+                    'src/main/res/layout/hhh',
+                    'src/main/res/layout',
+                    'src/main/res'
+            ]
         }
     }
 
@@ -43,7 +96,7 @@ dependencies {
 
     implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.14.2'
 
-    implementation 'com.alibaba:arouter-api:1.5.0' // 换用最新版本
-    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2' // 换用最新版本
+    implementation 'com.alibaba:arouter-api:1.5.0'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 
 }

@@ -1,16 +1,21 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    repositories {
+    repositories {  //repositories闭包
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
         google()
-        jcenter()
+        jcenter()  //代码托管库：设置之后可以在项目中轻松引用jcenter上的开源项目
         
     }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.2'
+    dependencies { //dependencies闭包
+        classpath 'com.android.tools.build:gradle:3.5.2'        ////声明gradle插件，插件版本号为3.5.2
         
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+
+        //gradle是一个强大的项目构建工具，不仅可以构建Android，还可以构建java，C++等
+        //此处引用android的插件
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

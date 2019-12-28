@@ -1,8 +1,15 @@
 package com.daxue.studyandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.OnLifecycleEvent;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -15,12 +22,13 @@ import com.daxue.studyandroid.utils.callback.OkHttpCallback;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.HashMap;
 
 import okhttp3.Call;
 import okhttp3.Response;
 
 @Route(path = MyARouter.MainActivity)
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements LifecycleObserver {
     private final String TAG = MainActivity.class.getSimpleName();
 
     private OkHttpUtils okHttpUtils = OkHttpUtils.getInstance();
@@ -41,6 +49,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         initClick();
+
+
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        Notification notification = new Notification(R.drawable.unicomsdk_logo, "this is ticker text", System.currentTimeMillis());
+
+//        notification.setLatestEventInfo(MainActivity.this, "This is content title", "This is content text", null);
+        manager.notify(1, notification);
 
     }
 
@@ -96,9 +111,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
+    }
+
 
     public void test() {
-
         okHttpUtils.get("http://122.51.170.63:8080/", new OkHttpCallback() {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
