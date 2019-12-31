@@ -9,7 +9,6 @@ import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -22,7 +21,7 @@ import com.daxue.studyandroid.utils.callback.OkHttpCallback;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.HashMap;
+
 
 import okhttp3.Call;
 import okhttp3.Response;
@@ -85,17 +84,13 @@ public class MainActivity extends AppCompatActivity implements LifecycleObserver
         Field[] fields = clazz.getDeclaredFields();
         Log.v(TAG, "fields size-->" + fields.length);
         for (Field field : fields) {
-            //判断字段是否标注InjectView
             if (field.isAnnotationPresent(ViewById.class)) {
                 Log.v(TAG, "is injectView");
-                //如果标注了，就获得它的id
                 ViewById inject = field.getAnnotation(ViewById.class);
                 int id = inject.id();
                 Log.v(TAG, "id--->" + id);
                 if (id > 0) {
-                    //反射访问私有成员，必须加上这句
                     field.setAccessible(true);
-                    //然后对这个属性复制
                     field.set(activity, activity.findViewById(id));
                 }
             }

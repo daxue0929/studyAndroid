@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- 读取联系人 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />  <!-- 向SD卡中写权限 -->
 
     <dist:module dist:instant="true" />
 
@@ -24,22 +25,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".TestTActivity"></activity>
+        <activity android:name=".activity.FrameLayoutTest"></activity>
+        <activity android:name=".activity.ThirdActivity"></activity>
+        <activity android:name=".activity.FourthActivity"></activity>
+        <activity android:name=".activity.DataBaseActivity"></activity>
+        <activity android:name=".activity.CamaraActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TestTActivity"></activity>
-        <activity android:name=".activity.FrameLayoutTest"></activity>
-        <activity android:name=".activity.ThirdActivity">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
-        <activity android:name=".activity.FourthActivity"></activity>
-        <activity android:name=".activity.DataBaseActivity"></activity>
+
+
 
         <!-- 静态注册一个广播接收器：实现开机自启动 -->
         <receiver android:name=".receiver.BootCompleteReceiver">

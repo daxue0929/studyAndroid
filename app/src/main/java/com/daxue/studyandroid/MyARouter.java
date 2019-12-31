@@ -11,5 +11,6 @@ public final class MyARouter {
     public static final String FourthActivity = "/ui/FourthActivity";
     public static final String ThirdActivity = "/ui/ThirdActivity";
     public static final String DataBaseActivity = "/ui/DataBaseActivity";
+    public static final String CamaraACtivity = "/ui/CamaraActivity";
 
 }
