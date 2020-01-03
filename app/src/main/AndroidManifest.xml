@@ -25,19 +25,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".TestTActivity"></activity>
-        <activity android:name=".activity.FrameLayoutTest"></activity>
-        <activity android:name=".activity.ThirdActivity"></activity>
-        <activity android:name=".activity.FourthActivity"></activity>
-        <activity android:name=".activity.DataBaseActivity"></activity>
-        <activity android:name=".activity.CamaraActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".TestTActivity"></activity>
+        <activity android:name=".activity.FrameLayoutTest"></activity>
+        <activity android:name=".activity.ThirdActivity"></activity>
+        <activity android:name=".activity.FourthActivity"></activity>
+        <activity android:name=".activity.DataBaseActivity"></activity>
+        <activity android:name=".activity.CamaraActivity"></activity>
 
 
         <!-- 静态注册一个广播接收器：实现开机自启动 -->

@@ -124,4 +124,7 @@ public class MainActivity extends AppCompatActivity implements LifecycleObserver
             }
         });
     }
+
+    public native String testString();
+
 }
