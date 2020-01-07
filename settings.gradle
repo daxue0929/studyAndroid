@@ -1,2 +1,17 @@
-include ':app'
+include ':app', ':testlibrary'
 rootProject.name='studyAndroid'
+
+
+/**
+ * setting.gradle文件在初始化阶段被执行,并且定义了哪些模块应该被包含在构建内.
+ *
+ * 单模块项目中不一定需要setting文件,但在多模块项目必须要有setting文件,否则,Gradle不知道哪个模块应该包含在构建内.
+ * (扩展:Gradle会为每个setting.gradle文件创建一个Setting对象,并调用对象的相关方法)
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */

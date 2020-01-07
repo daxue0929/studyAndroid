@@ -4,31 +4,36 @@
 
 apply plugin: 'com.android.application'
 
+/**
+ * android代码块,包含了所有安卓的特有的配置
+ */
 android {
 
-    // 程序在编译的时候会检查lint，有任何错误提示会停止build，我们可以关闭这个开关
-//    lintOptions {
-//        // 即使报错也不会停止打包
-//        abortOnError false
-//        // 打包release版本的时候是否进行检测
-//        checkReleaseBuilds false
-//    }
+    /**
+     程序在编译的时候会检查lint，有任何错误提示会停止build，我们可以关闭这个开关
+    lintOptions {
+        // 即使报错也不会停止打包
+        abortOnError false
+        // 打包release版本的时候是否进行检测
+        checkReleaseBuilds false
+    }
 
-    // 编译sdk的版本，也就是API Level，例如API-19、API-20、API-21等等。
-    compileSdkVersion 29
+    */
+    // 编译sdk的版本，也就是API Level，例如API-19、API-20、API-21等等。(必有)
+    compileSdkVersion rootProject.ext.compileSdkVersion
 
     // build tools的版本，其中包括了打包工具aapt、dx等等。
-    // 这个工具的目录位于你的sdk目录/build-tools/下
+    // 这个工具的目录位于你的sdk目录/build-tools/下(必有)
     buildToolsVersion "29.0.2"
 
     //关闭Android Studio的PNG合法性检查
 //    aaptOptions.cruncherEnabled = false
 //    aaptOptions.useNewCruncher = false
 
-    defaultConfig {  //默认配置
-        applicationId "com.daxue.studyandroid"  //// 应用程序的包名
-        minSdkVersion 19  /// 最小sdk版本，如果设备小于这个版本或者大于maxSdkVersion将无法安装这个应用
-        targetSdkVersion 26  //// 目标sdk版本，充分测试过的版本（建议版本）
+    defaultConfig {  //配置应用核心属性,此代码块中的属性会覆盖AndroidManifest.xml文件对应的条目
+        applicationId "com.daxue.studyandroid"  //// 应用程序的包名 (覆盖manifest文件中的package name)
+        minSdkVersion 14  /// 最小sdk版本，如果设备小于这个版本或者大于maxSdkVersion将无法安装这个应用
+        targetSdkVersion 28  //// 目标sdk版本，充分测试过的版本（建议版本）
         versionCode 1  //// 版本号，第一版是1，之后每更新一次加1
         versionName "1.0"  //// 版本名，显示给用户看到的版本号
 
@@ -49,7 +54,7 @@ android {
         // 而short最大值是65535)的时候允许打包成多个dex文件，动态加载dex。这里面坑很深啊
         multiDexEnabled true
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner" //// Instrumentation单元测试
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner" //// Instrumentation单   元测试
 
 
         // 添加路由
@@ -60,10 +65,17 @@ android {
         }
 
     }
+
+    /**
+     * 用来定义如何构建和打包不同的构建类型的应用
+     */
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+
         }
     }
 
@@ -100,17 +112,17 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs') //当前模块下的libs目录下所有的jar文件
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    testImplementation 'junit:junit:4.12'
+
     implementation 'com.squareup.okhttp3:okhttp:3.14.2'
     implementation 'com.alibaba:arouter-api:1.5.0'
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 
-    testImplementation 'junit:junit:4.12'
     testImplementation 'org.mockito:mockito-core:2.19.0'
 //    implementation files('libs/robotium-solo-5.6.3.jar')
 }

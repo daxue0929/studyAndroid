@@ -1,14 +1,17 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+// 所有模块的配置参数都应在顶层build.gradle文件中配置,默认情况下包含两个代码块
 
-buildscript {
+buildscript {//默认代码块1
     repositories {  //repositories闭包
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
         google()
+        mavenCentral()
         jcenter()  //代码托管库：设置之后可以在项目中轻松引用jcenter上的开源项目
+        mavenLocal()
         
     }
-    dependencies { //dependencies闭包
+
+    dependencies { // 用于配置构建过程中的依赖包
         classpath 'com.android.tools.build:gradle:3.5.2'        ////声明gradle插件，插件版本号为3.5.2
         
         // NOTE: Do not place your application dependencies here; they belong
@@ -21,7 +24,13 @@ buildscript {
     }
 }
 
-allprojects {
+
+/**
+ * allProjects可用来声明哪些需要被用于所有模块的属性,
+ * 甚至可以在allprojects中创建任务,这些任务最终会被运用到所有的模块
+ */
+
+allprojects {//默认代码块2
     repositories {
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
@@ -29,8 +38,19 @@ allprojects {
         jcenter()
         
     }
+
+    // 定义额外属性的方式一
+    ext {
+        compileSdkVersion = 29
+    }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+task printProperties() {
+    println(compileSdkVersion)
+//    添加格外属性方式二, 在gradle.properties
+    println(testPro)
 }

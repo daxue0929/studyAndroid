@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    android:networkSecurityConfig="@xml/network_config"
     xmlns:dist="http://schemas.android.com/apk/distribution"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.daxue.studyandroid">
+    package="com.daxue.studyandroid"
+    android:networkSecurityConfig="@xml/network_config">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- 读取联系人 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />  <!-- 向SD卡中写权限 -->
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 向SD卡中写权限 -->
     <dist:module dist:instant="true" />
 
     <application
@@ -25,27 +23,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".activity.NewActivity"
+            android:label="@string/title_activity_new"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TestTActivity"></activity>
-        <activity android:name=".activity.FrameLayoutTest"></activity>
-        <activity android:name=".activity.ThirdActivity"></activity>
-        <activity android:name=".activity.FourthActivity"></activity>
-        <activity android:name=".activity.DataBaseActivity"></activity>
-        <activity android:name=".activity.CamaraActivity"></activity>
-
-
-        <!-- 静态注册一个广播接收器：实现开机自启动 -->
+        <activity android:name=".TestTActivity" />
+        <activity android:name=".activity.FrameLayoutTest" />
+        <activity android:name=".activity.ThirdActivity" />
+        <activity android:name=".activity.FourthActivity" />
+        <activity android:name=".activity.DataBaseActivity" />
+        <activity android:name=".activity.CamaraActivity" /> <!-- 静态注册一个广播接收器：实现开机自启动 -->
         <receiver android:name=".receiver.BootCompleteReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
     </application>
 
 </manifest>
